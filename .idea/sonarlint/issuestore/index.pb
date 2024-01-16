@@ -14,3 +14,11 @@ C
 gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+?
+settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
+J
+AutomatizacionSerenity.iml,d\6\d6e76f64bf5d8549a1aa09c7cd2b1f4d4daa5ec1
+7
+gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
+R
+"src/test/java/com/sofka/Setup.java,6\0\60470497ca81f48a3e56b767efe7cbbdeb879651

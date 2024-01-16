@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
-import static net.serenitybdd.core.di.SerenityInfrastructure.getEnvironmentVariables;
+import static net.serenitybdd.core.environment.WebDriverConfiguredEnvironment.getEnvironmentVariables;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class Setup {

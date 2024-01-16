@@ -9,7 +9,3 @@ Feature: Registrarse en el sistema
     When hago una solicitud GET para obtener detalles de usuarios
     Then deberia recibir una respuesta exitosa
     And la respuesta deberia contener detalles de usuarios
-
-
-
-

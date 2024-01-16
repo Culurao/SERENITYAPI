@@ -1,15 +1,15 @@
 buildscript {
     ext {
-        serenityCoreVersion = '4.0.30'
+        serenityCoreVersion = '3.3.0' // Cambio de versión a 3.2.0
         junitVersion = '5.8.2'
-        logbackVersion = '1.4.14'
-        lombokVersion = '1.18.24'
+        logbackVersion = '1.2.10'
+        lombokVersion = '1.18.22'
     }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath "net.serenity-bdd:serenity-gradle-plugin:4.0.30"
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.4.2"
         classpath "net.serenity-bdd:serenity-single-page-report:$serenityCoreVersion"
     }
 }
@@ -23,8 +23,11 @@ plugins {
 
 
 
-group = 'com.sofka'
-version = '1.0-SNAPSHOT'
+
+defaultTasks 'clean', 'test', 'aggregate'
+group 'com.sofka'
+version '1.0-SNAPSHOT'
+
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
@@ -36,10 +39,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+    // Dependencias para pruebas
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 
-    testImplementation 'junit:junit:4.13.1'
-
+    // Dependencias de Serenity
     implementation "net.serenity-bdd:serenity-core:$serenityCoreVersion"
     implementation "net.serenity-bdd:serenity-junit5:$serenityCoreVersion"
     implementation "net.serenity-bdd:serenity-cucumber:$serenityCoreVersion"
@@ -47,8 +51,10 @@ dependencies {
 
     implementation "net.serenity-bdd:serenity-ensure:$serenityCoreVersion"
     implementation "net.serenity-bdd:serenity-screenplay:$serenityCoreVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$serenityCoreVersion"
     implementation "net.serenity-bdd:serenity-screenplay-rest:$serenityCoreVersion"
 
+    // Dependencias de logging y Lombok
     implementation "ch.qos.logback:logback-classic:$logbackVersion"
     compileOnly "org.projectlombok:lombok:$lombokVersion"
     annotationProcessor "org.projectlombok:lombok:$lombokVersion"
@@ -63,14 +69,11 @@ test {
 }
 
 serenity {
-    testRoot = "com.runners"
+    testRoot = "com.sofka.runners"
     requirementsBaseDir = "src/test/resources/features"
     reports = ["single-page-html"]
 }
 
 gradle.startParameter.continueOnFailure = true
-
-defaultTasks 'clean', 'test', 'aggregate'
-
 
 test.finalizedBy(aggregate)
