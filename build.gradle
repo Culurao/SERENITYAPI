@@ -70,6 +70,7 @@ serenity {
 
 gradle.startParameter.continueOnFailure = true
 
-defaultTasks 'test', 'aggregate'
+defaultTasks 'clean', 'test', 'aggregate'
+
 
 test.finalizedBy(aggregate)
